@@ -2,7 +2,7 @@
 const path = require("path");
 
 // This plugin clears ./dist folder before building the project so that you don't store files from previous builds
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // This plugin outputs CSS to a single file
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -96,9 +96,9 @@ module.exports = {
   },
   plugins: [
     // This plugin clears ./dist folder before building the project so that you don't store files from previous builds
-    new CleanWebpackPlugin(path.resolve(__dirname, prod_Path), {
-      root: process.cwd()
-    }),
+    // new CleanWebpackPlugin(path.resolve(__dirname, prod_Path), {
+    //   root: process.cwd()
+    // }),
 
     // We use [contenthash] to prevent browser cache issues - if content changes, the filename will change and browser will have to reload the file
     new MiniCssExtractPlugin({
