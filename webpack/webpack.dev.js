@@ -1,6 +1,9 @@
 // This plugin lets us define paths easily
 const path = require("path");
 
+// import path from 'path';
+// path();
+
 // This plugin outputs CSS to a single file
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -18,7 +21,7 @@ module.exports = {
 
   // Where files should be saved. Basically, it tells Webpack to use "prod_Path" from src/webpack/path.js file
   output: {
-    path: path.resolve(__dirname, prod_Path),
+    path: path.resolve(__dirname, src_Path),
     filename: "[name].js"
   },
 
@@ -85,7 +88,7 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              outputPath: "images"
+              outputPath: "/images"
             }
           }
         ]

@@ -12,7 +12,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 // This plugin optimizes images
 const ImageminPlugin = require("imagemin-webpack");
-
+// import ImageminPlugin from "imagemin-webpack";
 // This file stores production and source paths. You can change them in src/webpack/path.js if you want
 const { prod_Path, src_Path } = require("./path");
 
@@ -80,6 +80,7 @@ module.exports = {
           }
         ]
       },
+      
       {
         // Load images and output them to /dist/images directory
         test: /\.(png|jpe?g|gif|svg)$/i,
@@ -118,6 +119,8 @@ module.exports = {
         // Before using imagemin plugins make sure you have added them in `package.json` (`devDependencies`) and installed them
         plugins: [
           ["gifsicle", { interlaced: true }],
+          ["jpegtran", { progressive: true }],
+          ["optipng", { optimizationLevel: 5 }],
           ["mozjpeg", { quality: 80, progressive: true }],
           ["pngquant", { strip: true }],
           [
