@@ -1,136 +1,97 @@
-# Webpack 4 static website boilerplate
-This project is a Webpack 4 Boilerplate for creating static websites. Features include:
-- Sass/SCSS support. Simply edit `src/styles/index.sccs` to meet your requirements. You can also take advantage of Sass/SCSS imports (see example code in files)
-- Included [normalize.css](https://necolas.github.io/normalize.css/)
-- [PostCSS](https://github.com/postcss/postcss) support with installed [Autoprefixer](https://github.com/postcss/autoprefixer). No need to remember about vendor prefixes - they will be included for you. 
-- Automatic images optimization with [ImageMin](https://github.com/imagemin/imagemin). With use of [html-loader](https://github.com/webpack-contrib/html-loader) every `<img src="" />` or `<link href="" />` will be required and optimized.
-- [Babel](https://github.com/babel/babel) compiler support. Write ES6+ syntax like arrow function which will get transpiled to pre-ES6 syntax during build process
-- GitHub Pages deployment with a single command
+<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+<p align="center">
+  <a href="https://www.gatsbyjs.org">
+    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  Gatsby's default starter
+</h1>
 
-## Installation
+Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
-First of all, create a new repo using this template.
+_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
 
-![image](https://user-images.githubusercontent.com/20635180/67092219-f6479280-f1ae-11e9-9614-378fbed00258.png)
+## 🚀 Quick start
 
-Clone it to your local machine and run:
-```
-yarn
-```
-or if you prefer to use npm:
-```
-npm install
-```
+1.  **Create a Gatsby site.**
 
-After installing packages run.
-```
-yarn dev
-```
-or
-```
-npm run dev
-```
+    Use the Gatsby CLI to create a new site, specifying the default starter.
 
-This will setup a development server and open a new card in your browser. Now you may edit any files in your IDE of choice and every change will be visible live. 
+    ```shell
+    # create a new Gatsby site using the default starter
+    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
+    ```
 
-## How to edit files
+1.  **Start developing.**
 
-Open `src/index.html` and you will see this code:
+    Navigate into your new site’s directory and start it up.
 
-```html
-<!DOCTYPE html>
-<html lang="en">
+    ```shell
+    cd my-default-starter/
+    gatsby develop
+    ```
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1.0">
-  <title>Webpack 4 Boilerplate</title>
-</head>
+1.  **Open the source code and start editing!**
 
-<body>
-  <section class="hello">
-    <h1>🏴‍ Ahoy there!</h1>
-    <p>☠️ Everything seems to be working, mate!</p>
-    <img src="./images/br-icon-pirate.jpg" alt="">
-  </section>
-</body>
+    Your site is now running at `http://localhost:8000`!
 
-</html>
-```
+    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-Note that there is no CSS or JS imported here - all of that will be done by Webpack (and precisely html-webpack-plugin).
-You can write html as you would normally. You can provide relative paths for images and they will be included in build files.
+    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-For CSS you can use Sass/SCSS. Currently there is a `src/styles` folder with `index.scss` file:
-```scss
-//
-// modules
-//
+## 🧐 What's inside?
 
-@import 'modules/colors';
-@import 'modules/base';
+A quick look at the top-level files and directories you'll see in a Gatsby project.
 
-//
-// partials
-//
+    .
+    ├── node_modules
+    ├── src
+    ├── .gitignore
+    ├── .prettierrc
+    ├── gatsby-browser.js
+    ├── gatsby-config.js
+    ├── gatsby-node.js
+    ├── gatsby-ssr.js
+    ├── LICENSE
+    ├── package-lock.json
+    ├── package.json
+    └── README.md
 
-@import 'partials/hello';
-```
+1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-This is just my setup - you may adjust that to your needs.
+2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
 
-As for Javascript, look at `src/index.js` file:
-```js
+3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
-import 'normalize.css';
-import './index.html'
-import './styles/style.scss';
+4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-console.log('☠️ Arr! JS on board!');
-```
+5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
 
-If you are new to build tools, that may look weird for you. Why would we import CSS or SCSS or even HTML in our JS file? Basically, Webpack uses Javascript to process your code. It doesn't natively understand stuff like CSS or HTML. So what we do is:
-1. We import our CSS/SCSS/HTML into our Javascript
-2. Webpack sees that we want to import those files and checks in config what it should do with that
-3. Webpack processes those files according to the setup.
+6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
 
-If you look into `webpack` directory, you will see `webpack.dev.js` and `webpack.prod.js` files which tell Webpack what to do with certain types of files. I included separate files for development and production mode. If you look into `webpack.prod.js`, you will for example see:
-```js
-{
-  // Find all .html files and require elements in <img> and <link> tags. Then, other webpack plugins/loaders will be able to do something with them, for example optimize images
-  test: /\.html$/,
-  use: {
-    loader: "html-loader",
-    options: {
-      attrs: ["img:src", "link:href"]
-    }
-  }
-}
-```
-What Webpack will do is: find all files ending with `.html` (this is a simple regexp) and process it with defined loader. Currently it is a `html-loader`. `options` are settings for the loader. Right now it will try to import every `src` in `<img>` tags and every `href` in `<link>` tags (for example favicons).
+7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
 
-You don't need to understand every line of code there - you will get that as you work more with Webpack. For now, just get a basic idea on how Webpack works.
+8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
 
-## Production building
-If you are done with developing your code in dev mode and would like to create optimized files to host somewhere, use:
-After installing packages run.
-```
-yarn prod
-```
-or
-```
-npm run prod
-```
-This will create a `dist` directory with optimized project code. You can upload those files to any static hosting as you would normally. You may also notice, that some files will be named in a weird name - a combination of letters and numbers. That is because right now the project is set up to hash file names. This is to get around browser caching issues. For example: You host your site and keep styles in `style.css` file. Let's say you want to change something and upload a new version of `style.css`. Some users that already visited your website would not see your change, because their browser can keep a copy of previous `style.css` file. That is why we hash files - if name is different, then the browser will have to download a new file. However, we hash files based on their content - the hash changes only if you change the file itself. If you change only `style.css` and run `yarn prod` or `npm run prod` - the only hash that will change is `style.css` hash. So it is a win-win situation. We force browsers to reload only the files that changed.
+9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
 
-## Deployment
-This setup is able to deploy your project to GitHub pages with a single command. Simply run:
-```
-yarn deploy
-```
-or
-```
-npm run deploy
-```
-and Webpack will go through whole build process. Then it will upload the contents of `dist` directory to a `gh-pages` branch and push it to remote. If your project url is `github.com/username/my-static-website`, you will be able to view your built project at `username.github.io/my-static-website`
-      
+10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+
+11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+
+12. **`README.md`**: A text file containing useful reference information about your project.
+
+## 🎓 Learning Gatsby
+
+Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+
+- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+
+- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+
+## 💫 Deploy
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+
+<!-- AUTO-GENERATED-CONTENT:END -->
