@@ -1,0 +1,13 @@
+.cc-profile-image{
+position: relative;
+	margin: 0 auto;
+	margin-top: 1rem;
+    width: 7rem;
+    height: 7rem;
+    display: block;
+    background: blue;
+    color: black;
+}
+div {
+    background: red;
+}
