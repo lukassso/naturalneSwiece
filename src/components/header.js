@@ -1,21 +1,21 @@
 // import { Link } from "gatsby"
 // import PropTypes from "prop-types"
 import React from "react"
-import "./Styles.css"
+import "./styles.css"
 // import {Nav, NavDropdown, Navbar} from 'react-bootstrap'
 
 // const Header = ({ siteTitle }) => (
 //   <header>
-  
   const Header = () => (
     <header>
     <div className="cc-profile-image">
       
-      dsfs
+      test
     </div>
+  
     </header>
 //    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-//   <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+//     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
 //   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 //   <Navbar.Collapse id="responsive-navbar-nav">
 //     <Nav className="mr-auto">
