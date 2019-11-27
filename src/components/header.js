@@ -1,41 +1,23 @@
-// import { Link } from "gatsby"
-// import PropTypes from "prop-types"
-import React from "react"
-import "./styles.css"
-// import {Nav, NavDropdown, Navbar} from 'react-bootstrap'
+import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import React from 'react'
 
-// const Header = ({ siteTitle }) => (
-//   <header>
-  const Header = () => (
-    <header>
-    <div className="cc-profile-image">
-      
-      test
-    </div>
-  
-    </header>
-//    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-//     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-//   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-//   <Navbar.Collapse id="responsive-navbar-nav">
-//     <Nav className="mr-auto">
-//       <Nav.Link href="#features">Features</Nav.Link>
-//       <Nav.Link href="#pricing">Pricing</Nav.Link>
-//       <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-//         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-//         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-//         <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-//         <NavDropdown.Divider />
-//         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-//       </NavDropdown>
-//     </Nav>
-//     <Nav>
-//       <Nav.Link href="#deets">More deets</Nav.Link>
-//       <Nav.Link eventKey={2} href="#memes">
-//         Dank memes
-//       </Nav.Link>
-//     </Nav>
-//   </Navbar.Collapse>
-// </Navbar>
-  );
-export default Header;
+const Header = ({ siteTitle }) => (
+  <header className="bg-black-90 fixed w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
+    <nav className="f6 fw6 ttu tracked">
+      <Link to="/" className="link dim white dib mr3">
+        {siteTitle}
+      </Link>
+    </nav>
+  </header>
+)
+
+Header.propTypes = {
+  siteTitle: PropTypes.string,
+}
+
+Header.defaultProps = {
+  siteTitle: ``,
+}
+
+export default Header
