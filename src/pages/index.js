@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, grapql, useStaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
@@ -14,13 +14,22 @@ import Icon1 from '../images/icon-capacity.svg'
 import Icon2 from '../images/icon-nature.svg'
 import Icon3 from '../images/icon-price.svg'
 import Icon4 from '../images/icon-transport.svg'
-import "../styles/body.scss"
+import styles from "../styles/body.scss"
 
-
-const IndexPage = () => (
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+  query{
+    site{
+      siteMetadata {
+        title
+      }
+    }
+  }
+  `) 
+  return(
   <Layout>
     <SEO title="Home" />
-    <div className="grid menu">
+        <div className="grid menu">
       <Logo className="cc-Profile-Image column-xs-12 column-md-12"></Logo>
       <div className="column-xs-12 column-md-12">
         <div className="social">
@@ -54,7 +63,7 @@ const IndexPage = () => (
         <div className="column-xs-12 column-md-7">
           <div className="product-gallery">
             <div className="product-image">
-              {/* <Photo4 className="active" />> */}
+              <Image />
             </div>
             <ul className="image-list">
               <li className="image-item"></li>
@@ -126,8 +135,9 @@ const IndexPage = () => (
         <button className="add-to-cart">Zarezerwuj swoje zapachy</button>
       </div>
     </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <Link to="/page-2/">{data.site.siteMetadata.title}</Link>
   </Layout>
-)
+  )
+  }
 
 export default IndexPage
